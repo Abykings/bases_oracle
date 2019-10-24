@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT last_name, registration_date,
+<br>
+  2  TO_CHAR(registration_date, 'MM/DD/YYYY')
+<br>
+  3  AS &quot;Formatted&quot;
+<br>
+  4  FROM student
+<br>
+  5  WHERE student_id IN (123, 161, 190);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+REGISTRA
+</th>
+<th scope="col">
+Formatted
+</th>
+</tr>
+<tr>
+<td>
+Radicola
+</td>
+<td>
+27/01/03
+</td>
+<td>
+01/27/2003
+</td>
+</tr>
+<tr>
+<td>
+Grant
+</td>
+<td>
+02/02/03
+</td>
+<td>
+02/02/2003
+</td>
+</tr>
+<tr>
+<td>
+Affinito
+</td>
+<td>
+03/02/03
+</td>
+<td>
+02/03/2003
+</td>
+</tr>
+</table>
+<p>
+
+3 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT DBTIMEZONE
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+DBTIME
+</th>
+</tr>
+<tr>
+<td>
++00:00
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ SELECT LOCALTIMESTAMP
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LOCALTIMESTAMP
+</th>
+</tr>
+<tr>
+<td>
+23/10/19 21:17:23.357000
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ SELECT SYSDATE
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SYSDATE
+</th>
+</tr>
+<tr>
+<td>
+23/10/19
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ SELECT SYSTIMESTAMP
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SYSTIMESTAMP
+</th>
+</tr>
+<tr>
+<td>
+23/10/19 21:17:23.374000 -05:00
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ SELECT LOCALTIMESTAMP
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LOCALTIMESTAMP
+</th>
+</tr>
+<tr>
+<td>
+23/10/19 21:17:23.380000
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ REM falta la bd date_examples :(
+<br>
+sql~ spool off;
+<br>
+</body>
+</html>

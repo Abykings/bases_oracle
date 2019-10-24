@@ -1,0 +1,321 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT s.student_id, i.instructor_id,
+<br>
+  2  s.zip, i.zip
+<br>
+  3  FROM student s, instructor i
+<br>
+  4  WHERE s.zip = i.zip
+<br>
+  5  ORDER BY s.student_id, i.instructor_id;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+INSTRUCTOR_ID
+</th>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+ZIP
+</th>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td align="right">
+       102
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td align="right">
+       103
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td align="right">
+       106
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td align="right">
+       108
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       223
+</td>
+<td align="right">
+       102
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       223
+</td>
+<td align="right">
+       103
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       223
+</td>
+<td align="right">
+       106
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       223
+</td>
+<td align="right">
+       108
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       399
+</td>
+<td align="right">
+       102
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       399
+</td>
+<td align="right">
+       103
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       399
+</td>
+<td align="right">
+       106
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       399
+</td>
+<td align="right">
+       108
+</td>
+<td>
+10025
+</td>
+<td>
+10025
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id, zip
+<br>
+  2  FROM student
+<br>
+  3  WHERE zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+ZIP
+</th>
+</tr>
+<tr>
+<td align="right">
+       163
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       223
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       399
+</td>
+<td>
+10025
+</td>
+</tr>
+</table>
+<p>
+
+3 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT instructor_id, zip
+<br>
+  2  FROM instructor
+<br>
+  3  WHERE zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+INSTRUCTOR_ID
+</th>
+<th scope="col">
+ZIP
+</th>
+</tr>
+<tr>
+<td align="right">
+       102
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       103
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       106
+</td>
+<td>
+10025
+</td>
+</tr>
+<tr>
+<td align="right">
+       108
+</td>
+<td>
+10025
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ spool off;
+<br>
+</body>
+</html>

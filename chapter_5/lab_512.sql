@@ -1,5 +1,5 @@
 REM Use the GROUP BY and HAVING Clauses
-
+spool lab_512.html
 SELECT prerequisite, COUNT(*)
 FROM course
 GROUP BY prerequisite
@@ -26,4 +26,5 @@ AVG(capacity) "Avg. Capacity",
 ROUND(AVG(capacity)) "Rounded Avg. Capacity"
 FROM section
 GROUP BY course_no
-HAVING COUNT(*) = 2
+HAVING COUNT(*) = 2;
+spool off;

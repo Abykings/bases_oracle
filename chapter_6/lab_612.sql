@@ -1,5 +1,5 @@
 REM Narrow Down Your Result Set
-
+spool lab_612.html
 SELECT c.course_no, c.description, s.section_no
 FROM course c, section s
 WHERE c.course_no = s.course_no
@@ -29,3 +29,4 @@ WHERE e.section_id = s.section_id
 AND s.course_no = 20
 AND e.enroll_date >= TO_DATE('01/30/2003','MM/DD/YYYY')
 AND e.enroll_date < TO_DATE('01/31/2003','MM/DD/YYYY');
+spool off;

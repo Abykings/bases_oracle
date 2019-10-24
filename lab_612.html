@@ -1,0 +1,388 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT c.course_no, c.description, s.section_no
+<br>
+  2  FROM course c, section s
+<br>
+  3  WHERE c.course_no = s.course_no
+<br>
+  4  AND c.prerequisite IS NULL
+<br>
+  5  ORDER BY c.course_no, s.section_no;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td>
+DP Overview
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         7
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         8
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td>
+Java for C/C++ Programmers
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td>
+Java for C/C++ Programmers
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td>
+Operating Systems
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+</table>
+<p>
+
+8 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT c.course_no, c.description, s.section_no
+<br>
+  2  FROM course c JOIN section s
+<br>
+  3  ON (c.course_no = s.course_no)
+<br>
+  4  WHERE c.prerequisite IS NULL
+<br>
+  5  ORDER BY c.course_no, section_no;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td>
+DP Overview
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         7
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+         8
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td>
+Java for C/C++ Programmers
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td>
+Java for C/C++ Programmers
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td>
+Operating Systems
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+</table>
+<p>
+
+8 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT e.student_id, s.course_no,
+<br>
+  2  TO_CHAR(e.enroll_date,'MM/DD/YYYY HH:MI PM'),
+<br>
+  3  e.section_id
+<br>
+  4  FROM enrollment e JOIN section s
+<br>
+  5  ON (e.section_id = s.section_id)
+<br>
+  6  WHERE s.course_no = 20
+<br>
+  7  AND e.enroll_date &gt;= TO_DATE('01/30/2003','MM/DD/YYYY')
+<br>
+  8  AND e.enroll_date &lt; TO_DATE('01/31/2003','MM/DD/YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+TO_CHAR(E.ENROLL_DA
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+       103
+</td>
+<td align="right">
+        20
+</td>
+<td>
+01/30/2003 10:18 AM
+</td>
+<td align="right">
+        81
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td align="right">
+        20
+</td>
+<td>
+01/30/2003 10:18 AM
+</td>
+<td align="right">
+        81
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT e.student_id, s.course_no,
+<br>
+  2  TO_CHAR(e.enroll_date,'MM/DD/YYYY HH:MI PM'),
+<br>
+  3  e.section_id
+<br>
+  4  FROM enrollment e, section s
+<br>
+  5  WHERE e.section_id = s.section_id
+<br>
+  6  AND s.course_no = 20
+<br>
+  7  AND e.enroll_date &gt;= TO_DATE('01/30/2003','MM/DD/YYYY')
+<br>
+  8  AND e.enroll_date &lt; TO_DATE('01/31/2003','MM/DD/YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+TO_CHAR(E.ENROLL_DA
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+       103
+</td>
+<td align="right">
+        20
+</td>
+<td>
+01/30/2003 10:18 AM
+</td>
+<td align="right">
+        81
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td align="right">
+        20
+</td>
+<td>
+01/30/2003 10:18 AM
+</td>
+<td align="right">
+        81
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

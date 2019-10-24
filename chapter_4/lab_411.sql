@@ -1,5 +1,5 @@
 REM Compare a Text Literal to a DATE Column
-
+spool lab_411.html
 SELECT course_no, section_id,
 TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI')
 FROM section;
@@ -33,3 +33,4 @@ TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI')
 FROM section
 WHERE start_date_time >= TIMESTAMP '2003-05-04 00:00:00'
 AND start_date_time < TIMESTAMP '2003-05-05 00:00:00';
+spool off;

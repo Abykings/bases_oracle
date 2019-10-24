@@ -1,5 +1,5 @@
 REM Understand the SYSDATE Function and Perform Date Arithmetic
-
+spool lab_421.html
 SELECT LAST_DAY(TO_DATE('13-FEB-1964','DD-MON-YYYY')) lastday,
 LAST_DAY(TO_DATE('13-FEB-1964','DD-MON-YYYY'))
 - TO_DATE('13-FEB-1964','DD-MON-YYYY') days
@@ -14,3 +14,4 @@ REM fecha  y fecha +3
 SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS') "Current",
 TO_CHAR(SYSDATE+3, 'DD-MON-YYYY HH24:MI:SS') "Answer"
 FROM dual;
+spool off;

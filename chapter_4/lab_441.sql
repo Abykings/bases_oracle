@@ -1,4 +1,5 @@
 REM Understand the Functionality of the Interval Datatypes
+spool lab_441.html
 SELECT section_id "ID",
 TO_CHAR(created_date, 'MM/DD/YY HH24:MI')
 "CREATED_DATE",
@@ -19,3 +20,4 @@ REM NUMTODSINTERVAL converts n to an INTERVAL DAY TO SECOND literal.
 SELECT NUMTODSINTERVAL(360, 'HOUR'),
 NUMTODSINTERVAL(360, 'DAY')
 FROM dual;
+spool off;

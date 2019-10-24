@@ -1,5 +1,5 @@
 REM Apply Format Models
-
+spool lab_412.html
 SELECT course_no, section_id,
 TO_CHAR(start_date_time, 'DY DD-MON-YYYY')
 FROM section
@@ -39,3 +39,4 @@ AND TO_DATE('07/31/2003 23:59:59', 'MM/DD/YYYY HH24:MI:SS');
 
 SELECT TO_CHAR(TO_DATE('31-DEC-1899', 'DD-MON-YYYY'),'Dy')
 FROM dual;
+spool off;

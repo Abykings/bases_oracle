@@ -56,3 +56,4 @@ FROM dual;
 
 SELECT REPLACE('Fred fed Ted bread, and Ted fed Fred bread', 'ed', NULL)
 FROM dual;
+spool off;

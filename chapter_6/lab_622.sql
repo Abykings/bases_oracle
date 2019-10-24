@@ -1,5 +1,5 @@
 REM Join with Multicolumn Join Criteria
-
+spool lab_622.html
 SELECT s.first_name|| ' '|| s.last_name name,
 e.section_id, g.grade_type_code,
 g.numeric_grade grade
@@ -112,3 +112,4 @@ AND gw.section_id = g.section_id
 AND g.numeric_grade <= 80
 AND g.student_id = s.student_id
 ORDER BY s.last_name;
+spool off;

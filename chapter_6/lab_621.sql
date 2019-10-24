@@ -1,5 +1,5 @@
 REM Join Three or More Tables
-
+spool lab_621.html
 SELECT c.course_no, s.section_no, e.student_id
 FROM course c, section s, instructor i, enrollment e
 WHERE c.prerequisite IS NULL
@@ -82,3 +82,4 @@ WHERE s.student_id = e.student_id
 AND s.zip = z.zip
 AND z.state = 'CT';
 
+spool off;

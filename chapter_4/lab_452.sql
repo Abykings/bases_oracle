@@ -1,5 +1,5 @@
 REM Format Data
-
+spool lab_452.html
 SELECT course_no, cost,
 TO_CHAR(cost, '$999,999.99') Formatted
 FROM course
@@ -23,3 +23,4 @@ TO_CHAR(cost*1.15, 'fm$999,999.99')||'.'
 "Increase"
 FROM course
 WHERE cost > 1500;
+spool off;

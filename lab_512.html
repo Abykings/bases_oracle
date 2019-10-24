@@ -1,0 +1,848 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT prerequisite, COUNT(*)
+<br>
+  2  FROM course
+<br>
+  3  GROUP BY prerequisite
+<br>
+  4  ORDER BY prerequisite;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+PREREQUISITE
+</th>
+<th scope="col">
+COUNT(*)
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        80
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       204
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       420
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+NULO
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+</table>
+<p>
+
+17 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT prerequisite, COUNT(*)
+<br>
+  2  FROM course
+<br>
+  3  GROUP BY prerequisite
+<br>
+  4  ORDER BY prerequisite NULLS FIRST;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+PREREQUISITE
+</th>
+<th scope="col">
+COUNT(*)
+</th>
+</tr>
+<tr>
+<td align="right">
+NULO
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        80
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       204
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       420
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+</table>
+<p>
+
+17 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id, COUNT(*)
+<br>
+  2  FROM enrollment
+<br>
+  3  GROUP BY student_id
+<br>
+  4  HAVING COUNT(*) &gt; 2;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+COUNT(*)
+</th>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+       184
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td align="right">
+       214
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+       215
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td align="right">
+       232
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td align="right">
+       238
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td align="right">
+       250
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+</table>
+<p>
+
+7 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no &quot;Course #&quot;,
+<br>
+  2  AVG(capacity) &quot;Avg. Capacity&quot;,
+<br>
+  3  ROUND(AVG(capacity)) &quot;Rounded Avg. Capacity&quot;
+<br>
+  4  FROM section
+<br>
+  5  GROUP BY course_no;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Course #
+</th>
+<th scope="col">
+Avg. Capacity
+</th>
+<th scope="col">
+Rounded Avg. Capacity
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+        15
+</td>
+<td align="right">
+        15
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+22.7777778
+</td>
+<td align="right">
+        23
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+        21
+</td>
+<td align="right">
+        21
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+21.6666667
+</td>
+<td align="right">
+        22
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+        21
+</td>
+<td align="right">
+        21
+</td>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+        21
+</td>
+<td align="right">
+        21
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+21.6666667
+</td>
+<td align="right">
+        22
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+21.6666667
+</td>
+<td align="right">
+        22
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+21.6666667
+</td>
+<td align="right">
+        22
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+<td align="right">
+        15
+</td>
+<td align="right">
+        15
+</td>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       204
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       210
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       230
+</td>
+<td align="right">
+      13.5
+</td>
+<td align="right">
+        14
+</td>
+</tr>
+<tr>
+<td align="right">
+       240
+</td>
+<td align="right">
+      12.5
+</td>
+<td align="right">
+        13
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       330
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+21.6666667
+</td>
+<td align="right">
+        22
+</td>
+</tr>
+<tr>
+<td align="right">
+       420
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       450
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+</table>
+<p>
+
+28 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no &quot;Course #&quot;,
+<br>
+  2  AVG(capacity) &quot;Avg. Capacity&quot;,
+<br>
+  3  ROUND(AVG(capacity)) &quot;Rounded Avg. Capacity&quot;
+<br>
+  4  FROM section
+<br>
+  5  GROUP BY course_no
+<br>
+  6  HAVING COUNT(*) = 2;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Course #
+</th>
+<th scope="col">
+Avg. Capacity
+</th>
+<th scope="col">
+Rounded Avg. Capacity
+</th>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td align="right">
+        25
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+        20
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       230
+</td>
+<td align="right">
+      13.5
+</td>
+<td align="right">
+        14
+</td>
+</tr>
+<tr>
+<td align="right">
+       240
+</td>
+<td align="right">
+      12.5
+</td>
+<td align="right">
+        13
+</td>
+</tr>
+</table>
+<p>
+
+5 filas seleccionadas.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

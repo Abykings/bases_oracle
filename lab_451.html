@@ -1,0 +1,222 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT zip, city
+<br>
+  2  FROM zipcode
+<br>
+  3  WHERE zip = 10025;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT zip, city
+<br>
+  2  FROM zipcode
+<br>
+  3  WHERE zip = TO_CHAR(10025);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT zip, city
+<br>
+  2  FROM zipcode
+<br>
+  3  WHERE TO_NUMBER(zip) = 10025;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT zip, city
+<br>
+  2  FROM zipcode
+<br>
+  3  WHERE CAST(zip AS NUMBER) = 10025;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ --O también--
+<br>
+sql~ SELECT zip, city
+<br>
+  2  FROM zipcode
+<br>
+  3  WHERE zip = CAST(10025 AS VARCHAR2(5));
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT zip, TO_NUMBER(zip) &quot;TO_NUMBER&quot;,
+<br>
+  2  CAST(zip AS NUMBER) &quot;CAST&quot;, city
+<br>
+  3  FROM zipcode
+<br>
+  4  WHERE zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+TO_NUMBER
+</th>
+<th scope="col">
+CAST
+</th>
+<th scope="col">
+CITY
+</th>
+</tr>
+<tr>
+<td>
+10025
+</td>
+<td align="right">
+     10025
+</td>
+<td align="right">
+     10025
+</td>
+<td>
+New York
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT course_no, cost,
+<br>
+  2  TO_CHAR(cost, '$999,999.99') Formatted
+<br>
+  3  FROM course
+<br>
+  4  WHERE course_no = 330;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+COST
+</th>
+<th scope="col">
+FORMATTED
+</th>
+</tr>
+<tr>
+<td align="right">
+       330
+</td>
+<td align="right">
+      1195
+</td>
+<td>
+   $1,195.00
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no, cost oldcost,
+<br>
+  2  cost*1.15 newcost,
+<br>
+  3  TO_CHAR(cost*1.15, '$999,999.99') formatted,
+<br>
+  4  TO_CHAR(ROUND(cost*1.15), '$999,999.99') rounded
+<br>
+  5  FROM course
+<br>
+  6  WHERE cost &gt; 1500;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+OLDCOST
+</th>
+<th scope="col">
+NEWCOST
+</th>
+<th scope="col">
+FORMATTED
+</th>
+<th scope="col">
+ROUNDED
+</th>
+</tr>
+<tr>
+<td align="right">
+        80
+</td>
+<td align="right">
+      1595
+</td>
+<td align="right">
+   1834.25
+</td>
+<td>
+   $1,834.25
+</td>
+<td>
+   $1,834.00
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ --o tambien --
+<br>
+sql~ SELECT course_no, TO_CHAR(ROUND(cost*1.15), '$999,999.99') rounded,
+<br>
+  2  TO_CHAR(cost*1.15, '$999,999') &quot;No Cents&quot;
+<br>
+  3  FROM course
+<br>
+  4  WHERE cost &gt; 1500;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+ROUNDED
+</th>
+<th scope="col">
+No Cents
+</th>
+</tr>
+<tr>
+<td align="right">
+        80
+</td>
+<td>
+   $1,834.00
+</td>
+<td>
+   $1,834
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT 'The price for course# '||course_no||' has been increased
+<br>
+  2  to '||
+<br>
+  3  TO_CHAR(cost*1.15, 'fm$999,999.99')||'.'
+<br>
+  4  &quot;Increase&quot;
+<br>
+  5  FROM course
+<br>
+  6  WHERE cost &gt; 1500;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Increase
+</th>
+</tr>
+<tr>
+<td>
+The price for course# 80 has been increased
+to $1,834.25.
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

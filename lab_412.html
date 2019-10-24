@@ -1,0 +1,1691 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT course_no, section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'DY DD-MON-YYYY')
+<br>
+  3  FROM section
+<br>
+  4  WHERE TO_CHAR(start_date_time, 'DY') = 'TUE';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DYDD-MON
+</th>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        86
+</td>
+<td>
+TUE 10-JUN-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+        98
+</td>
+<td>
+TUE 15-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+       103
+</td>
+<td>
+TUE 29-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+       106
+</td>
+<td>
+TUE 03-JUN-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+       110
+</td>
+<td>
+TUE 10-JUN-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       114
+</td>
+<td>
+TUE 15-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+       120
+</td>
+<td>
+TUE 10-JUN-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+<td align="right">
+       122
+</td>
+<td>
+TUE 15-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+       125
+</td>
+<td>
+TUE 29-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       135
+</td>
+<td>
+TUE 15-APR-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       143
+</td>
+<td>
+TUE 03-JUN-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       152
+</td>
+<td>
+TUE 29-APR-2003
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no, section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'Day DD-Mon-YYYY')
+<br>
+  3  FROM section;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DAYDD-MON-YYYY')
+</th>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+        79
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+        80
+</td>
+<td>
+Thursday  24-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+        81
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Saturday  03-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+        83
+</td>
+<td>
+Wednesday 11-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Wednesday 11-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        86
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        87
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        88
+</td>
+<td>
+Sunday    04-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        89
+</td>
+<td>
+Thursday  15-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Thursday  12-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        91
+</td>
+<td>
+Thursday  12-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        92
+</td>
+<td>
+Friday    13-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        93
+</td>
+<td>
+Friday    13-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+        94
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td align="right">
+        95
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       204
+</td>
+<td align="right">
+        96
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       210
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Wednesday 07-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+        98
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       230
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Wednesday 07-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       230
+</td>
+<td align="right">
+       100
+</td>
+<td>
+Monday    09-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       240
+</td>
+<td align="right">
+       101
+</td>
+<td>
+Wednesday 16-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       240
+</td>
+<td align="right">
+       102
+</td>
+<td>
+Saturday  24-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+       103
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       330
+</td>
+<td align="right">
+       104
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+       105
+</td>
+<td>
+Friday    09-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+       106
+</td>
+<td>
+Tuesday   03-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       107
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       420
+</td>
+<td align="right">
+       108
+</td>
+<td>
+Wednesday 07-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       450
+</td>
+<td align="right">
+       109
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+       110
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+       111
+</td>
+<td>
+Thursday  08-Apr-2004
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       112
+</td>
+<td>
+Friday    16-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       113
+</td>
+<td>
+Monday    02-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       114
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       115
+</td>
+<td>
+Wednesday 07-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+       116
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+       117
+</td>
+<td>
+Monday    02-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td align="right">
+       118
+</td>
+<td>
+Friday    09-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+       119
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+       120
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+       121
+</td>
+<td>
+Wednesday 09-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+<td align="right">
+       122
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td align="right">
+       123
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td align="right">
+       124
+</td>
+<td>
+Friday    09-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+       125
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+       126
+</td>
+<td>
+Monday    14-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+       127
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+       128
+</td>
+<td>
+Wednesday 09-Apr-2003
+</td>
+</tr>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DAYDD-MON-YYYY')
+</th>
+</tr>
+<tr>
+<td align="right">
+       124
+</td>
+<td align="right">
+       129
+</td>
+<td>
+Wednesday 07-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+       130
+</td>
+<td>
+Thursday  22-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+       131
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+       132
+</td>
+<td>
+Wednesday 09-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+       133
+</td>
+<td>
+Saturday  03-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td align="right">
+       134
+</td>
+<td>
+Wednesday 11-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       135
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       136
+</td>
+<td>
+Thursday  24-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       137
+</td>
+<td>
+Saturday  03-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+       138
+</td>
+<td>
+Wednesday 21-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td align="right">
+       139
+</td>
+<td>
+Monday    09-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+       140
+</td>
+<td>
+Wednesday 16-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       141
+</td>
+<td>
+Monday    14-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       142
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       143
+</td>
+<td>
+Tuesday   03-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       144
+</td>
+<td>
+Sunday    04-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       145
+</td>
+<td>
+Thursday  15-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       146
+</td>
+<td>
+Friday    16-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       147
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       148
+</td>
+<td>
+Saturday  24-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       149
+</td>
+<td>
+Sunday    04-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       150
+</td>
+<td>
+Thursday  15-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td align="right">
+       151
+</td>
+<td>
+Thursday  12-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       152
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       153
+</td>
+<td>
+Thursday  24-Jul-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       154
+</td>
+<td>
+Wednesday 21-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       155
+</td>
+<td>
+Sunday    04-May-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       156
+</td>
+<td>
+Thursday  15-May-2003
+</td>
+</tr>
+</table>
+<p>
+
+78 filas seleccionadas.<br>
+<br>
+
+
+sql~ WHERE TO_CHAR(start_date_time, 'Day') = 'Tuesday';
+<br>
+SP2-0734: inicio &quot;WHERE TO_C...&quot; de comando desconocido - resto de la línea ignorado.
+<br>
+sql~ SELECT course_no, section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'Day DD-Mon-YYYY')
+<br>
+  3  FROM section
+<br>
+  4  WHERE TO_CHAR(start_date_time, 'fmDay') = 'Tuesday';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DAYDD-MON-YYYY')
+</th>
+</tr>
+<tr>
+<td align="right">
+        25
+</td>
+<td align="right">
+        86
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+<td align="right">
+        98
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+       103
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       350
+</td>
+<td align="right">
+       106
+</td>
+<td>
+Tuesday   03-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       134
+</td>
+<td align="right">
+       110
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td align="right">
+       114
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td align="right">
+       120
+</td>
+<td>
+Tuesday   10-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+<td align="right">
+       122
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+       125
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       130
+</td>
+<td align="right">
+       135
+</td>
+<td>
+Tuesday   15-Apr-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       100
+</td>
+<td align="right">
+       143
+</td>
+<td>
+Tuesday   03-Jun-2003
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td align="right">
+       152
+</td>
+<td>
+Tuesday   29-Apr-2003
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ REM fm llena espacios vacioss
+<br>
+sql~ 
+<br>
+sql~ SELECT section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI:SS')
+<br>
+  3  FROM section
+<br>
+  4  WHERE start_date_time &gt;= TO_DATE('07/01/2003', 'MM/DD/YYYY')
+<br>
+  5  AND start_date_time &lt; TO_DATE('08/01/2003', 'MM/DD/YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DD-M
+</th>
+</tr>
+<tr>
+<td align="right">
+        81
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        85
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        94
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       107
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       116
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       119
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       123
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       126
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       127
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       131
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       153
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+</table>
+<p>
+
+14 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI:SS')
+<br>
+  3  FROM section
+<br>
+  4  WHERE start_date_time BETWEEN
+<br>
+  5  TO_DATE('07/01/2003', 'MM/DD/YYYY')
+<br>
+  6  AND TO_DATE('07/31/2003', 'MM/DD/YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DD-M
+</th>
+</tr>
+<tr>
+<td align="right">
+        81
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        85
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        94
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       107
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       116
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       119
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       123
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       126
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       127
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       131
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       153
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+</table>
+<p>
+
+14 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ REM En 24 horas (formato)
+<br>
+sql~ SELECT section_id,
+<br>
+  2  TO_CHAR(start_date_time, 'DD-MON-YYYY HH24:MI:SS')
+<br>
+  3  FROM section
+<br>
+  4  WHERE start_date_time BETWEEN
+<br>
+  5  TO_DATE('07/01/2003', 'MM/DD/YYYY')
+<br>
+  6  AND TO_DATE('07/31/2003 23:59:59', 'MM/DD/YYYY HH24:MI:SS');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+TO_CHAR(START_DATE_TIME,'DD-M
+</th>
+</tr>
+<tr>
+<td align="right">
+        81
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        85
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+        94
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       104
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       107
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       116
+</td>
+<td>
+14-JUL-2003 10:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       119
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       123
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       126
+</td>
+<td>
+14-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       127
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       131
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       142
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       147
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+<tr>
+<td align="right">
+       153
+</td>
+<td>
+24-JUL-2003 09:30:00
+</td>
+</tr>
+</table>
+<p>
+
+14 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ 
+<br>
+sql~ SELECT TO_CHAR(TO_DATE('31-DEC-1899', 'DD-MON-YYYY'),'Dy')
+<br>
+  2  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+TO_
+</th>
+</tr>
+<tr>
+<td>
+Sun
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

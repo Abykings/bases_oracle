@@ -1,5 +1,5 @@
  REM Use Oracles Timestamp and Time Zone Datatypes
-
+spool lab_431.html
 SELECT last_name, registration_date,
 TO_CHAR(registration_date, 'MM/DD/YYYY')
 AS "Formatted"
@@ -17,3 +17,4 @@ FROM dual;
 SELECT LOCALTIMESTAMP
 FROM dual;
 REM falta la bd date_examples :(
+spool off;

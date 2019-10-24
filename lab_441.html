@@ -1,0 +1,363 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT section_id &quot;ID&quot;,
+<br>
+  2  TO_CHAR(created_date, 'MM/DD/YY HH24:MI')
+<br>
+  3  &quot;CREATED_DATE&quot;,
+<br>
+  4  TO_CHAR(start_date_time, 'MM/DD/YY HH24:MI')
+<br>
+  5  &quot;START_DATE_TIME&quot;,
+<br>
+  6  NUMTODSINTERVAL(start_date_time-created_date, 'DAY')
+<br>
+  7  &quot;Interval&quot;
+<br>
+  8  FROM section
+<br>
+  9  WHERE NUMTODSINTERVAL(start_date_time-created_date, 'DAY')
+<br>
+ 10  BETWEEN INTERVAL '100' DAY(3) AND INTERVAL '120' DAY(3)
+<br>
+ 11  ORDER BY 3;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ID
+</th>
+<th scope="col">
+CREATED_DATE
+</th>
+<th scope="col">
+START_DATE_TIM
+</th>
+<th scope="col">
+Interval
+</th>
+</tr>
+<tr>
+<td align="right">
+        96
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 09:30
+</td>
+<td>
++000000102 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       141
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 09:30
+</td>
+<td>
++000000102 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+        87
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 09:30
+</td>
+<td>
++000000102 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+        79
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 09:30
+</td>
+<td>
++000000102 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+        95
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 10:30
+</td>
+<td>
++000000102 10:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       109
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/14/03 10:30
+</td>
+<td>
++000000102 10:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       114
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/15/03 09:30
+</td>
+<td>
++000000103 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       135
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/15/03 09:30
+</td>
+<td>
++000000103 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/15/03 10:30
+</td>
+<td>
++000000103 10:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+        98
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/15/03 11:30
+</td>
+<td>
++000000103 11:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       140
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/16/03 09:30
+</td>
+<td>
++000000104 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       101
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/16/03 09:30
+</td>
+<td>
++000000104 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+        80
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/24/03 09:30
+</td>
+<td>
++000000112 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       136
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/24/03 09:30
+</td>
+<td>
++000000112 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       152
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/29/03 09:30
+</td>
+<td>
++000000117 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       103
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/29/03 09:30
+</td>
+<td>
++000000117 09:30:00.000000000
+</td>
+</tr>
+<tr>
+<td align="right">
+       125
+</td>
+<td>
+01/02/03 00:00
+</td>
+<td>
+04/29/03 09:30
+</td>
+<td>
++000000117 09:30:00.000000000
+</td>
+</tr>
+</table>
+<p>
+
+17 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT NUMTODSINTERVAL(360, 'SECOND'),
+<br>
+  2  NUMTODSINTERVAL(360, 'MINUTE')
+<br>
+  3  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NUMTODSINTERVAL(360,'SECOND')
+</th>
+<th scope="col">
+NUMTODSINTERVAL(360,'MINUTE')
+</th>
+</tr>
+<tr>
+<td>
++000000000 00:06:00.000000000
+</td>
+<td>
++000000000 06:00:00.000000000
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ REM NUMTODSINTERVAL converts n to an INTERVAL DAY TO SECOND literal.
+<br>
+sql~ 
+<br>
+sql~ SELECT NUMTODSINTERVAL(360, 'HOUR'),
+<br>
+  2  NUMTODSINTERVAL(360, 'DAY')
+<br>
+  3  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NUMTODSINTERVAL(360,'HOUR')
+</th>
+<th scope="col">
+NUMTODSINTERVAL(360,'DAY')
+</th>
+</tr>
+<tr>
+<td>
++000000015 00:00:00.000000000
+</td>
+<td>
++000000360 00:00:00.000000000
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

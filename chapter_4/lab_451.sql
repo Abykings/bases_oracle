@@ -1,4 +1,5 @@
 REM Convert between Different Datatypes
+spool lab_451.html
 SELECT zip, city
 FROM zipcode
 WHERE zip = 10025;
@@ -23,3 +24,4 @@ SELECT zip, TO_NUMBER(zip) "TO_NUMBER",
 CAST(zip AS NUMBER) "CAST", city
 FROM zipcode
 WHERE zip = '10025';
+spool off;

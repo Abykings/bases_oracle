@@ -1,5 +1,5 @@
 REM Write Simple Join Constructs
-
+spool lab_611.html
 SELECT s.last_name, s.zip, z.state, z.city
 FROM student s, zipcode z
 WHERE s.zip = z.zip
@@ -34,3 +34,4 @@ SELECT first_name, last_name, student_id
 FROM student JOIN enrollment
 USING (student_id)
 ORDER BY last_name;
+spool off;

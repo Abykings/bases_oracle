@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT LAST_DAY(TO_DATE('13-FEB-1964','DD-MON-YYYY')) lastday,
+<br>
+  2  LAST_DAY(TO_DATE('13-FEB-1964','DD-MON-YYYY'))
+<br>
+  3  - TO_DATE('13-FEB-1964','DD-MON-YYYY') days
+<br>
+  4  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LASTDAY
+</th>
+<th scope="col">
+DAYS
+</th>
+</tr>
+<tr>
+<td>
+29/02/64
+</td>
+<td align="right">
+        16
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT MONTHS_BETWEEN(TO_DATE('17-AUG-2003','DD-MON-YYYY'),
+<br>
+  2  TO_DATE('29-SEP-1999','DD-MON-YYYY')) months
+<br>
+  3  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+MONTHS
+</th>
+</tr>
+<tr>
+<td align="right">
+46.6129032
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ REM months_between(fecha1,fecha2) =&gt; meses_entre
+<br>
+sql~ 
+<br>
+sql~ REM fecha	y fecha +3
+<br>
+sql~ SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH24:MI:SS') &quot;Current&quot;,
+<br>
+  2  TO_CHAR(SYSDATE+3, 'DD-MON-YYYY HH24:MI:SS') &quot;Answer&quot;
+<br>
+  3  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+Current
+</th>
+<th scope="col">
+Answer
+</th>
+</tr>
+<tr>
+<td>
+23-OCT-2019 21:17:23
+</td>
+<td>
+26-OCT-2019 21:17:23
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

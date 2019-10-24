@@ -1,0 +1,1592 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT c.course_no, s.section_no, e.student_id
+<br>
+  2  FROM course c, section s, instructor i, enrollment e
+<br>
+  3  WHERE c.prerequisite IS NULL
+<br>
+  4  AND c.course_no = s.course_no
+<br>
+  5  AND s.instructor_id = i.instructor_id
+<br>
+  6  AND i.zip = '10025'
+<br>
+  7  AND s.section_id = e.section_id;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+<th scope="col">
+STUDENT_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       103
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       104
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       117
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       119
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       128
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       158
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       199
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       238
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       243
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no
+<br>
+  2  FROM course
+<br>
+  3  WHERE prerequisite IS NULL;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT c.course_no, s.section_no
+<br>
+  2  FROM course c, section s
+<br>
+  3  WHERE c.prerequisite IS NULL
+<br>
+  4  AND c.course_no = s.course_no;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         7
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+</table>
+<p>
+
+8 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT c.course_no, s.section_no
+<br>
+  2  FROM course c, section s, instructor i
+<br>
+  3  WHERE c.prerequisite IS NULL
+<br>
+  4  AND c.course_no = s.course_no
+<br>
+  5  AND s.instructor_id = i.instructor_id
+<br>
+  6  AND i.zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+</tr>
+</table>
+<p>
+
+5 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no, section_no, student_id
+<br>
+  2  FROM course JOIN section
+<br>
+  3  USING (course_no)
+<br>
+  4  JOIN instructor
+<br>
+  5  USING (instructor_id)
+<br>
+  6  JOIN enrollment
+<br>
+  7  USING (section_id)
+<br>
+  8  WHERE prerequisite IS NULL
+<br>
+  9  AND zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+<th scope="col">
+STUDENT_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       103
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       104
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       117
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       119
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       128
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       158
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       199
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       238
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       243
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT c.course_no, s.section_no, e.student_id
+<br>
+  2  FROM course c JOIN section s
+<br>
+  3  ON (c.course_no = s.course_no)
+<br>
+  4  JOIN instructor i
+<br>
+  5  ON (s.instructor_id = i.instructor_id)
+<br>
+  6  JOIN enrollment e
+<br>
+  7  ON (s.section_id = e.section_id)
+<br>
+  8  WHERE c.prerequisite IS NULL
+<br>
+  9  AND i.zip = '10025';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+SECTION_NO
+</th>
+<th scope="col">
+STUDENT_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       103
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       104
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       117
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       119
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td align="right">
+        10
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       128
+</td>
+</tr>
+<tr>
+<td align="right">
+       146
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       158
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         8
+</td>
+<td align="right">
+       199
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       238
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td align="right">
+         2
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td align="right">
+       310
+</td>
+<td align="right">
+         1
+</td>
+<td align="right">
+       243
+</td>
+</tr>
+</table>
+<p>
+
+12 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT i.first_name || ' ' ||i.last_name name,
+<br>
+  2  i.street_address, z.city || ', ' || z.state
+<br>
+  3  || ' ' || i.zip &quot;City State Zip&quot;,
+<br>
+  4  TO_CHAR(s.start_date_time, 'MM/DD/YY') start_dt,
+<br>
+  5  section_id sect
+<br>
+  6  FROM instructor i, section s, zipcode z
+<br>
+  7  WHERE i.instructor_id = s.instructor_id
+<br>
+  8  AND i.zip = z.zip
+<br>
+  9  AND s.start_date_time &gt;=
+<br>
+ 10  TO_DATE('01-JUN-2003','DD-MON-YYYY')
+<br>
+ 11  AND s.start_date_time &lt;
+<br>
+ 12  TO_DATE('01-JUL-2003','DD-MON-YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+STREET_ADDRESS
+</th>
+<th scope="col">
+City State Zip
+</th>
+<th scope="col">
+START_DT
+</th>
+<th scope="col">
+SECT
+</th>
+</tr>
+<tr>
+<td>
+Marilyn Frantzen
+</td>
+<td>
+254 Bleeker
+</td>
+<td>
+New York, NY 10005
+</td>
+<td>
+06/13/03
+</td>
+<td align="right">
+        93
+</td>
+</tr>
+<tr>
+<td>
+Fernand Hanks
+</td>
+<td>
+100 East 87th
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/02/03
+</td>
+<td align="right">
+       117
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+        83
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+        91
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/02/03
+</td>
+<td align="right">
+       113
+</td>
+</tr>
+<tr>
+<td>
+Tom Wojick
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+       110
+</td>
+</tr>
+<tr>
+<td>
+Tom Wojick
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/13/03
+</td>
+<td align="right">
+        92
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/03/03
+</td>
+<td align="right">
+       106
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+        86
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/09/03
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/09/03
+</td>
+<td align="right">
+       139
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/03/03
+</td>
+<td align="right">
+       143
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+       151
+</td>
+</tr>
+</table>
+<p>
+
+17 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT first_name || ' ' ||last_name name,
+<br>
+  2  street_address, city || ', ' || state
+<br>
+  3  || ' ' || zip &quot;City State Zip&quot;,
+<br>
+  4  TO_CHAR(start_date_time, 'MM/DD/YY') start_dt,
+<br>
+  5  section_id sect
+<br>
+  6  FROM instructor JOIN section s
+<br>
+  7  USING (instructor_id)
+<br>
+  8  JOIN zipcode
+<br>
+  9  USING (zip)
+<br>
+ 10  WHERE start_date_time &gt;=TO_DATE('01-JUN-2003','DD-MON-YYYY')
+<br>
+ 11  AND start_date_time &lt; TO_DATE('01-JUL-2003','DD-MON-YYYY');
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+STREET_ADDRESS
+</th>
+<th scope="col">
+City State Zip
+</th>
+<th scope="col">
+START_DT
+</th>
+<th scope="col">
+SECT
+</th>
+</tr>
+<tr>
+<td>
+Marilyn Frantzen
+</td>
+<td>
+254 Bleeker
+</td>
+<td>
+New York, NY 10005
+</td>
+<td>
+06/13/03
+</td>
+<td align="right">
+        93
+</td>
+</tr>
+<tr>
+<td>
+Fernand Hanks
+</td>
+<td>
+100 East 87th
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/02/03
+</td>
+<td align="right">
+       117
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+        83
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+        91
+</td>
+</tr>
+<tr>
+<td>
+Anita Morris
+</td>
+<td>
+34 Maiden Lane
+</td>
+<td>
+New York, NY 10015
+</td>
+<td>
+06/02/03
+</td>
+<td align="right">
+       113
+</td>
+</tr>
+<tr>
+<td>
+Tom Wojick
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+       110
+</td>
+</tr>
+<tr>
+<td>
+Tom Wojick
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/11/03
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/13/03
+</td>
+<td align="right">
+        92
+</td>
+</tr>
+<tr>
+<td>
+Todd Smythe
+</td>
+<td>
+210 West 101st
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/03/03
+</td>
+<td align="right">
+       106
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+        86
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/09/03
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Charles Lowry
+</td>
+<td>
+518 West 120th
+</td>
+<td>
+New York, NY 10025
+</td>
+<td>
+06/09/03
+</td>
+<td align="right">
+       139
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/10/03
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/03/03
+</td>
+<td align="right">
+       143
+</td>
+</tr>
+<tr>
+<td>
+Gary Pertez
+</td>
+<td>
+34 Sixth Ave
+</td>
+<td>
+New York, NY 10035
+</td>
+<td>
+06/12/03
+</td>
+<td align="right">
+       151
+</td>
+</tr>
+</table>
+<p>
+
+17 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id
+<br>
+  2  FROM student JOIN enrollment
+<br>
+  3  USING (student_id)
+<br>
+  4  JOIN zipcode
+<br>
+  5  USING (zip)
+<br>
+  6  WHERE state = 'CT';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+       118
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td align="right">
+       154
+</td>
+</tr>
+<tr>
+<td align="right">
+       162
+</td>
+</tr>
+<tr>
+<td align="right">
+       196
+</td>
+</tr>
+<tr>
+<td align="right">
+       197
+</td>
+</tr>
+<tr>
+<td align="right">
+       198
+</td>
+</tr>
+<tr>
+<td align="right">
+       208
+</td>
+</tr>
+<tr>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td align="right">
+       247
+</td>
+</tr>
+<tr>
+<td align="right">
+       270
+</td>
+</tr>
+<tr>
+<td align="right">
+       270
+</td>
+</tr>
+</table>
+<p>
+
+13 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT s.student_id
+<br>
+  2  FROM student s, enrollment e, zipcode z
+<br>
+  3  WHERE s.student_id = e.student_id
+<br>
+  4  AND s.zip = z.zip
+<br>
+  5  AND z.state = 'CT';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+</tr>
+<tr>
+<td align="right">
+       118
+</td>
+</tr>
+<tr>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td align="right">
+       154
+</td>
+</tr>
+<tr>
+<td align="right">
+       162
+</td>
+</tr>
+<tr>
+<td align="right">
+       196
+</td>
+</tr>
+<tr>
+<td align="right">
+       197
+</td>
+</tr>
+<tr>
+<td align="right">
+       198
+</td>
+</tr>
+<tr>
+<td align="right">
+       208
+</td>
+</tr>
+<tr>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td align="right">
+       247
+</td>
+</tr>
+<tr>
+<td align="right">
+       270
+</td>
+</tr>
+<tr>
+<td align="right">
+       270
+</td>
+</tr>
+</table>
+<p>
+
+13 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ spool off;
+<br>
+</body>
+</html>

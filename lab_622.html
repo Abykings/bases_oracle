@@ -1,0 +1,18684 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT s.first_name|| ' '|| s.last_name name,
+<br>
+  2  e.section_id, g.grade_type_code,
+<br>
+  3  g.numeric_grade grade
+<br>
+  4  FROM student s JOIN enrollment e
+<br>
+  5  ON (s.student_id = e.student_id)
+<br>
+  6  JOIN grade g
+<br>
+  7  ON (e.student_id = g.student_id
+<br>
+  8  AND e.section_id = g.section_id)
+<br>
+  9  WHERE s.last_name = 'Crocitto'
+<br>
+ 10  AND s.first_name ='Fred'
+<br>
+ 11  AND e.section_id = 86;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+</tr>
+</table>
+<p>
+
+11 filas seleccionadas.<br>
+<br>
+
+
+sql~ REM Join tradicional
+<br>
+sql~ SELECT s.first_name|| ' '|| s.last_name name,
+<br>
+  2  e.section_id, g.grade_type_code,
+<br>
+  3  g.numeric_grade grade
+<br>
+  4  FROM student s, enrollment e, grade g
+<br>
+  5  WHERE s.last_name = 'Crocitto'
+<br>
+  6  AND s.first_name ='Fred'
+<br>
+  7  AND e.section_id = 86
+<br>
+  8  AND s.student_id = e.student_id
+<br>
+  9  AND e.student_id = g.student_id
+<br>
+ 10  AND e.section_id = g.section_id;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+</tr>
+</table>
+<p>
+
+11 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT last_name, first_name
+<br>
+  2  FROM student
+<br>
+  3  WHERE last_name = 'Crocitto'
+<br>
+  4  AND first_name = 'Fred';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+FIRST_NAME
+</th>
+</tr>
+<tr>
+<td>
+Crocitto
+</td>
+<td>
+Fred
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT s.first_name||' '|| s.last_name name,
+<br>
+  2  e.section_id
+<br>
+  3  FROM student s, enrollment e
+<br>
+  4  WHERE s.last_name = 'Crocitto'
+<br>
+  5  AND s.first_name = 'Fred'
+<br>
+  6  AND e.section_id = 86
+<br>
+  7  AND s.student_id = e.student_id;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT s.first_name||' '|| s.last_name name,
+<br>
+  2  e.section_id, g.grade_type_code grade,
+<br>
+  3  g.numeric_grade, gt.description
+<br>
+  4  FROM student s, enrollment e, grade g, grade_type gt
+<br>
+  5  WHERE s.last_name = 'Crocitto'
+<br>
+  6  AND s.first_name = 'Fred'
+<br>
+  7  AND e.section_id = 86
+<br>
+  8  AND s.student_id = e.student_id
+<br>
+  9  AND e.student_id = g.student_id
+<br>
+ 10  AND e.section_id = g.section_id
+<br>
+ 11  AND g.grade_type_code = gt.grade_type_code;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+NUMERIC_GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+</tr>
+</table>
+<p>
+
+11 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT s.first_name||' '|| s.last_name name,
+<br>
+  2  e.section_id, g.grade_type_code,
+<br>
+  3  g.numeric_grade grade, gt.description,
+<br>
+  4  sec.course_no
+<br>
+  5  FROM student s, enrollment e, grade g, grade_type gt,
+<br>
+  6  section sec
+<br>
+  7  WHERE s.last_name = 'Crocitto'
+<br>
+  8  AND s.first_name = 'Fred'
+<br>
+  9  AND e.section_id = 86
+<br>
+ 10  AND s.student_id = e.student_id
+<br>
+ 11  AND e.student_id = g.student_id
+<br>
+ 12  AND e.section_id = g.section_id
+<br>
+ 13  AND g.grade_type_code = gt.grade_type_code;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+FI
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Final
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        99
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+HM
+</td>
+<td align="right">
+        82
+</td>
+<td>
+Homework
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+MT
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Midterm
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+PA
+</td>
+<td align="right">
+        85
+</td>
+<td>
+Participation
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        90
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        84
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        10
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        20
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+        25
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       100
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       120
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       122
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       124
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       125
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       130
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       132
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       134
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       135
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       140
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       142
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       144
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       145
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       146
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       147
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       204
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       210
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       220
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       230
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       240
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       310
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       330
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       350
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       420
+</td>
+</tr>
+<tr>
+<td>
+Fred Crocitto
+</td>
+<td align="right">
+        86
+</td>
+<td>
+QZ
+</td>
+<td align="right">
+        97
+</td>
+<td>
+Quiz
+</td>
+<td align="right">
+       450
+</td>
+</tr>
+</table>
+<p>
+
+858 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT e.student_id, sec.course_no, g.numeric_grade
+<br>
+  2  FROM student stud, zipcode z,
+<br>
+  3  enrollment e, section sec, grade g
+<br>
+  4  WHERE stud.zip = z.zip
+<br>
+  5  AND z.state = 'CT'
+<br>
+  6  AND stud.student_id = e.student_id
+<br>
+  7  AND e.section_id = sec.section_id
+<br>
+  8  AND e.section_id = g.section_id
+<br>
+  9  AND e.student_id = g.student_id
+<br>
+ 10  AND sec.course_no = 420
+<br>
+ 11  AND g.grade_type_code = 'FI';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+NUMERIC_GRADE
+</th>
+</tr>
+<tr>
+<td align="right">
+       196
+</td>
+<td align="right">
+       420
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td align="right">
+       198
+</td>
+<td align="right">
+       420
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id, course_no, numeric_grade
+<br>
+  2  FROM student JOIN zipcode
+<br>
+  3  USING (zip)
+<br>
+  4  JOIN enrollment
+<br>
+  5  USING (student_id)
+<br>
+  6  JOIN section
+<br>
+  7  USING (section_id)
+<br>
+  8  JOIN grade g
+<br>
+  9  USING (section_id, student_id)
+<br>
+ 10  WHERE course_no = 420
+<br>
+ 11  AND grade_type_code = 'FI'
+<br>
+ 12  AND state = 'CT';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+NUMERIC_GRADE
+</th>
+</tr>
+<tr>
+<td align="right">
+       196
+</td>
+<td align="right">
+       420
+</td>
+<td align="right">
+        84
+</td>
+</tr>
+<tr>
+<td align="right">
+       198
+</td>
+<td align="right">
+       420
+</td>
+<td align="right">
+        85
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT g.student_id, g.section_id,
+<br>
+  2  gw.percent_of_final_grade pct, g.grade_type_code,
+<br>
+  3  g.numeric_grade grade, s.last_name
+<br>
+  4  FROM grade_type_weight gw, grade g,
+<br>
+  5  enrollment e, student s
+<br>
+  6  WHERE g.grade_type_code = 'PJ'
+<br>
+  7  AND gw.grade_type_code = g.grade_type_code
+<br>
+  8  AND gw.section_id = g.section_id
+<br>
+  9  AND g.numeric_grade &lt;= 80
+<br>
+ 10  AND g.section_id = e.section_id
+<br>
+ 11  AND g.student_id = e.student_id
+<br>
+ 12  AND e.student_id = s.student_id
+<br>
+ 13  ORDER BY s.last_name;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+PCT
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+</tr>
+<tr>
+<td align="right">
+       245
+</td>
+<td align="right">
+        82
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        77
+</td>
+<td>
+Dalvi
+</td>
+</tr>
+<tr>
+<td align="right">
+       176
+</td>
+<td align="right">
+       115
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Satterfield
+</td>
+</tr>
+<tr>
+<td align="right">
+       244
+</td>
+<td align="right">
+        82
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Wilson
+</td>
+</tr>
+<tr>
+<td align="right">
+       248
+</td>
+<td align="right">
+       155
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Zapulla
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT g.student_id, g.section_id,
+<br>
+  2  gw.percent_of_final_grade pct, g.grade_type_code,
+<br>
+  3  g.numeric_grade grade, s.last_name
+<br>
+  4  FROM grade_type_weight gw, grade g,
+<br>
+  5  student s
+<br>
+  6  WHERE g.grade_type_code = 'PJ'
+<br>
+  7  AND gw.grade_type_code = g.grade_type_code
+<br>
+  8  AND gw.section_id = g.section_id
+<br>
+  9  AND g.numeric_grade &lt;= 80
+<br>
+ 10  AND g.student_id = s.student_id
+<br>
+ 11  ORDER BY s.last_name;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+SECTION_ID
+</th>
+<th scope="col">
+PCT
+</th>
+<th scope="col">
+GR
+</th>
+<th scope="col">
+GRADE
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+</tr>
+<tr>
+<td align="right">
+       245
+</td>
+<td align="right">
+        82
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        77
+</td>
+<td>
+Dalvi
+</td>
+</tr>
+<tr>
+<td align="right">
+       176
+</td>
+<td align="right">
+       115
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Satterfield
+</td>
+</tr>
+<tr>
+<td align="right">
+       244
+</td>
+<td align="right">
+        82
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Wilson
+</td>
+</tr>
+<tr>
+<td align="right">
+       248
+</td>
+<td align="right">
+       155
+</td>
+<td align="right">
+        75
+</td>
+<td>
+PJ
+</td>
+<td align="right">
+        76
+</td>
+<td>
+Zapulla
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>
