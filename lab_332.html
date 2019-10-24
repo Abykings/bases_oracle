@@ -1,0 +1,502 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT student_id, first_name||' '|| last_name name,
+<br>
+  2  phone,
+<br>
+  3  DECODE(phone, NULL, 'No phone# exists.', 'Phone# exists.')
+<br>
+  4  &quot;Get this result&quot;
+<br>
+  5  FROM student
+<br>
+  6  WHERE student_id IN (111, 112);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+PHONE
+</th>
+<th scope="col">
+Get this result
+</th>
+</tr>
+<tr>
+<td align="right">
+       111
+</td>
+<td>
+Peggy Noviello
+</td>
+<td>
+NULO
+</td>
+<td>
+No phone# exists.
+</td>
+</tr>
+<tr>
+<td align="right">
+       112
+</td>
+<td>
+Thomas Thomas
+</td>
+<td>
+201-555-5555
+</td>
+<td>
+Phone# exists.
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ REM las siguientes sentencias actuan igual
+<br>
+sql~ SELECT course_no, description, prerequisite &quot;ORIGINAL&quot;,
+<br>
+  2  CASE WHEN prerequisite = 120 THEN '200'
+<br>
+  3  WHEN prerequisite = 130 THEN 'N/A'
+<br>
+  4  WHEN prerequisite IS NULL THEN 'None'
+<br>
+  5  ELSE TO_CHAR(prerequisite)
+<br>
+  6  END &quot;NEW&quot;
+<br>
+  7  FROM course
+<br>
+  8  WHERE course_no IN (20, 120, 122, 132)
+<br>
+  9  ORDER BY course_no DESC;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+ORIGINAL
+</th>
+<th scope="col">
+NEW
+</th>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td>
+Basics of Unix Admin
+</td>
+<td align="right">
+       130
+</td>
+<td>
+N/A
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td>
+Intermediate Java Programming
+</td>
+<td align="right">
+       120
+</td>
+<td>
+200
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td>
+Intro to Java Programming
+</td>
+<td align="right">
+        80
+</td>
+<td>
+80
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+NULO
+</td>
+<td>
+None
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT course_no, description, prerequisite &quot;ORIGINAL&quot;,
+<br>
+  2  DECODE(prerequisite, 120, '200',
+<br>
+  3  130, 'N/A',
+<br>
+  4  NULL, 'None',
+<br>
+  5  TO_CHAR(prerequisite)) &quot;NEW&quot;
+<br>
+  6  FROM course
+<br>
+  7  WHERE course_no IN (20, 120, 122, 132)
+<br>
+  8  ORDER BY course_no DESC;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+DESCRIPTION
+</th>
+<th scope="col">
+ORIGINAL
+</th>
+<th scope="col">
+NEW
+</th>
+</tr>
+<tr>
+<td align="right">
+       132
+</td>
+<td>
+Basics of Unix Admin
+</td>
+<td align="right">
+       130
+</td>
+<td>
+N/A
+</td>
+</tr>
+<tr>
+<td align="right">
+       122
+</td>
+<td>
+Intermediate Java Programming
+</td>
+<td align="right">
+       120
+</td>
+<td>
+200
+</td>
+</tr>
+<tr>
+<td align="right">
+       120
+</td>
+<td>
+Intro to Java Programming
+</td>
+<td align="right">
+        80
+</td>
+<td>
+80
+</td>
+</tr>
+<tr>
+<td align="right">
+        20
+</td>
+<td>
+Intro to Computers
+</td>
+<td align="right">
+NULO
+</td>
+<td>
+None
+</td>
+</tr>
+</table>
+<p>
+
+4 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ REM las siguientes sentencias actuan igual
+<br>
+sql~ 
+<br>
+sql~ SELECT student_id, zip, phone,
+<br>
+  2  CASE WHEN SUBSTR(phone, 1, 3) = '212' THEN
+<br>
+  3  CASE WHEN zip = '10048' THEN 'North Campus'
+<br>
+  4  ELSE 'West Campus'
+<br>
+  5  END
+<br>
+  6  ELSE 'Off Campus'
+<br>
+  7  END loc
+<br>
+  8  FROM student
+<br>
+  9  WHERE student_id IN (150, 145, 325);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+PHONE
+</th>
+<th scope="col">
+LOC
+</th>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td>
+10048
+</td>
+<td>
+212-555-5555
+</td>
+<td>
+North Campus
+</td>
+</tr>
+<tr>
+<td align="right">
+       150
+</td>
+<td>
+11787
+</td>
+<td>
+718-555-5555
+</td>
+<td>
+Off Campus
+</td>
+</tr>
+<tr>
+<td align="right">
+       325
+</td>
+<td>
+10954
+</td>
+<td>
+212-555-5555
+</td>
+<td>
+West Campus
+</td>
+</tr>
+</table>
+<p>
+
+3 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id, zip, phone,
+<br>
+  2  DECODE(SUBSTR(phone, 1, 3), '212',
+<br>
+  3  DECODE(zip, '10048', 'North Campus',
+<br>
+  4  'West Campus'),
+<br>
+  5  'Off Campus') loc
+<br>
+  6  FROM student
+<br>
+  7  WHERE student_id IN (150, 145, 325);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+STUDENT_ID
+</th>
+<th scope="col">
+ZIP
+</th>
+<th scope="col">
+PHONE
+</th>
+<th scope="col">
+LOC
+</th>
+</tr>
+<tr>
+<td align="right">
+       145
+</td>
+<td>
+10048
+</td>
+<td>
+212-555-5555
+</td>
+<td>
+North Campus
+</td>
+</tr>
+<tr>
+<td align="right">
+       150
+</td>
+<td>
+11787
+</td>
+<td>
+718-555-5555
+</td>
+<td>
+Off Campus
+</td>
+</tr>
+<tr>
+<td align="right">
+       325
+</td>
+<td>
+10954
+</td>
+<td>
+212-555-5555
+</td>
+<td>
+West Campus
+</td>
+</tr>
+</table>
+<p>
+
+3 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ REM mi nombre en ascii
+<br>
+sql~ SELECT ASCII('A') &quot;A&quot;, ASCII('b') &quot;b&quot;, ASCII('d') &quot;d&quot;,
+<br>
+  2  ASCII('i') &quot;i&quot;, ASCII('e') &quot;e&quot;, ASCII('l') &quot;l&quot;
+<br>
+  3  FROM dual;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+A
+</th>
+<th scope="col">
+b
+</th>
+<th scope="col">
+d
+</th>
+<th scope="col">
+i
+</th>
+<th scope="col">
+e
+</th>
+<th scope="col">
+l
+</th>
+</tr>
+<tr>
+<td align="right">
+        65
+</td>
+<td align="right">
+        98
+</td>
+<td align="right">
+       100
+</td>
+<td align="right">
+       105
+</td>
+<td align="right">
+       101
+</td>
+<td align="right">
+       108
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>

@@ -1,0 +1,10 @@
+alter session set nls_date_language = 'ENGLISH';
+set pagesize 50;
+set linesize 130;
+set underline '=';
+set feedback on;
+set echo on;
+set flush on;
+set newpage 0;
+set null NULO;
+set sqlprompt 'SQL> ';

@@ -1,0 +1,215 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252">
+<meta name="generator" content="SQL*Plus 18.4.0">
+<style type='text/css'> body {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} p {font:10pt Arial,Helvetica,sans-serif; color:black; background:White;} table,tr,td {font:10pt Arial,Helvetica,sans-serif; color:Black; background:#f7f7e7; padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;} th {font:bold 10pt Arial,Helvetica,sans-serif; color:#336699; background:#cccc99; padding:0px 0px 0px 0px;} h1 {font:16pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; border-bottom:1px solid #cccc99; margin-top:0pt; margin-bottom:0pt; padding:0px 0px 0px 0px;-
+} h2 {font:bold 10pt Arial,Helvetica,Geneva,sans-serif; color:#336699; background-color:White; margin-top:4pt; margin-bottom:0pt;} a {font:9pt Arial,Helvetica,sans-serif; color:#663300; background:#ffffff; margin-top:0pt; margin-bottom:0pt; vertical-align:top;}</style><title>SQL*Plus Report</title>
+</head>
+<body>
+sql~ SELECT first_name||' '|| last_name name,
+<br>
+  2  phone oldphone,
+<br>
+  3  NVL(phone, '212-555-1212') newphone
+<br>
+  4  FROM student
+<br>
+  5  WHERE phone IS NULL;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+OLDPHONE
+</th>
+<th scope="col">
+NEWPHONE
+</th>
+</tr>
+<tr>
+<td>
+Peggy Noviello
+</td>
+<td>
+NULO
+</td>
+<td>
+212-555-1212
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT first_name||' '|| last_name name,
+<br>
+  2  phone oldphone,
+<br>
+  3  COALESCE(phone, '212-555-1212') newphone
+<br>
+  4  FROM student
+<br>
+  5  WHERE COALESCE(phone, 'NONE') ='NONE';
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+OLDPHONE
+</th>
+<th scope="col">
+NEWPHONE
+</th>
+</tr>
+<tr>
+<td>
+Peggy Noviello
+</td>
+<td>
+NULO
+</td>
+<td>
+212-555-1212
+</td>
+</tr>
+</table>
+<p>
+
+1 fila seleccionada.<br>
+<br>
+
+
+sql~ REM coalesce es como if(null) =&gt; cambialo
+<br>
+sql~ 
+<br>
+sql~ SELECT course_no, cost,
+<br>
+  2  NVL(cost,1000)*0.9 new
+<br>
+  3  FROM course
+<br>
+  4  WHERE course_no &gt;= 430;
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+COURSE_NO
+</th>
+<th scope="col">
+COST
+</th>
+<th scope="col">
+NEW
+</th>
+</tr>
+<tr>
+<td align="right">
+       430
+</td>
+<td align="right">
+      1195
+</td>
+<td align="right">
+    1075.5
+</td>
+</tr>
+<tr>
+<td align="right">
+       450
+</td>
+<td align="right">
+NULO
+</td>
+<td align="right">
+       900
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ 
+<br>
+sql~ SELECT student_id id, first_name||' '|| last_name name,
+<br>
+  2  phone,
+<br>
+  3  NVL2(phone, 'Phone# exists.', 'No phone# exists.')
+<br>
+  4  &quot;Get this result&quot;
+<br>
+  5  FROM student
+<br>
+  6  WHERE student_id IN (111, 112);
+<br>
+<p>
+<table border='1' width='90%' align='center' summary='Script output'>
+<tr>
+<th scope="col">
+ID
+</th>
+<th scope="col">
+NAME
+</th>
+<th scope="col">
+PHONE
+</th>
+<th scope="col">
+Get this result
+</th>
+</tr>
+<tr>
+<td align="right">
+       111
+</td>
+<td>
+Peggy Noviello
+</td>
+<td>
+NULO
+</td>
+<td>
+No phone# exists.
+</td>
+</tr>
+<tr>
+<td align="right">
+       112
+</td>
+<td>
+Thomas Thomas
+</td>
+<td>
+201-555-5555
+</td>
+<td>
+Phone# exists.
+</td>
+</tr>
+</table>
+<p>
+
+2 filas seleccionadas.<br>
+<br>
+
+
+sql~ spool off;
+<br>
+</body>
+</html>
